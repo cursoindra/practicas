@@ -48,15 +48,15 @@ function validar()
 			</tr>
 			<tr>
 				<td>Usuario*</td>
-				<td><input type="text" name="usuario"  required></td>
+				<td><input type="text" name="usuario" required></td>
 			</tr>
 			<tr>
 				<td>Clave*</td>
-				<td><input type="password" name="clave" id="clave1"  required></td>
+				<td><input type="password" name="clave" id="clave1" required></td>
 			</tr>
 			<tr>
 				<td>Repetir clave*</td>
-				<td><input type="password"  id="clave2"  required></td>
+				<td><input type="password"  id="clave2" required></td>
 			</tr>
 			<tr>
 				
