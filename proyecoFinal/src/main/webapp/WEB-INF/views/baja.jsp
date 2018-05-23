@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="#" method="post">
+<form action="bajaUsuario.html" method="post">
 
 <table border="1" align="center">
 <tr>

@@ -102,6 +102,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView("baja");
 		try {
 			getCursoService().getLogin(usuario, clave);
+			getCursoService().bajaUsuario(usuario);
 			modelAndView.addObject("resultado","BAJA REALIZADA");
 		} catch (Exception e) {
 			e.printStackTrace();

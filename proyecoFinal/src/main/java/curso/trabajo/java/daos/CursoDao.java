@@ -4,6 +4,7 @@ import java.security.GeneralSecurityException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -97,6 +98,26 @@ public class CursoDao {
 	
 
 	public void bajaUsuario(String usuario) throws Exception {
+		Connection conexion = getDataSource().getConnection();
+		conexion.setAutoCommit(false);
+		Statement statement= conexion.createStatement();
+		ResultSet rs=statement.executeQuery("select l.id from login l,usuarios u where "
+				+ "l.id=u.idLogin and u.usuario='"+usuario+"'");
+		int id=0;
+		if(rs.next())
+			id=rs.getInt(1);
+				
+		
+		try {
+			statement.executeUpdate("delete from usuarios where idLogin="+id);
+			statement.executeUpdate("delete from login where id="+id);
+			conexion.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			conexion.rollback();
+		}
+		
+		
 	}
 
 	public List<Usuario> getUsuarios() {

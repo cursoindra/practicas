@@ -31,4 +31,9 @@ public class CursoService {
 	public void setCursoDao(CursoDao cursoDao) {
 		this.cursoDao = cursoDao;
 	}
+
+	public void bajaUsuario(String usuario) throws Exception {
+		getCursoDao().bajaUsuario(usuario);
+		
+	}
 }
