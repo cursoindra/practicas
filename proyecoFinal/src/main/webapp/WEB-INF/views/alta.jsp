@@ -11,9 +11,11 @@ function validar()
 	var clave1=document.querySelector("#clave1").value;
 	var clave2=document.querySelector("#clave2").value;
 	
-	if(clave1===clave2)
+	if(clave1===clave2){
 		document.querySelector("#formulario").submit();
-	document.querySelector("#resultado").innerHTML="las contraseñas no coinciden";
+	}else{
+	document.querySelector("#resultado").innerHTML="Las contraseñas no coinciden";
+	};
 }
 </script>
 </head>

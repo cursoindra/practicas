@@ -13,7 +13,7 @@
 			<td class="rojo"><a href="alta.html">ALTA</a></td>
 		</tr>
 		<tr>
-			<td class="rojo"><a href="">BAJA</a></td>
+			<td class="rojo"><a href="baja.html">BAJA</a></td>
 		</tr>
 		<tr>
 			<td class="rojo"><a href="">MODIFICACION</a></td>

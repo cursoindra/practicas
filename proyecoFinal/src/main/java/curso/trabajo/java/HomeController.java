@@ -87,6 +87,29 @@ public class HomeController {
 		
 		return modelAndView;
 	}
+	
+
+	
+	@RequestMapping(value = "baja.html")
+	public String baja() {
+
+		return "baja";
+	}
+	
+	@RequestMapping(value = "bajaUsuario.html")
+	public ModelAndView bajaUsuario(@RequestParam("usuario") String usuario, @RequestParam("clave") String clave) {
+		
+		ModelAndView modelAndView = new ModelAndView("baja");
+		try {
+			getCursoService().getLogin(usuario, clave);
+			modelAndView.addObject("resultado","BAJA REALIZADA");
+		} catch (Exception e) {
+			e.printStackTrace();
+			if(e.getClass().isInstance(new UsuarioNoExisteException()))
+				modelAndView.addObject("resultado","USUARIO O CLAVE NO ES CORRECTO");
+		}
+		return modelAndView;
+	}
 
 	public CursoDelegate getCursoDelegate() {
 		return cursoDelegate;
