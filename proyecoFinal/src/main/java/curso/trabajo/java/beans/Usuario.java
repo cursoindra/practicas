@@ -2,9 +2,9 @@ package curso.trabajo.java.beans;
 
 import java.sql.Date;
 
-public class Usuario {
+public class Usuario{
 	
-	private int id;
+	private int id,rol,login;
 	private String nombre,apellido1,apellido2,dni,email;
 	private Date fechaNacimiento;
 	public int getId() {
@@ -48,6 +48,18 @@ public class Usuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public int getRol() {
+		return rol;
+	}
+	public void setRol(int rol) {
+		this.rol = rol;
+	}
+	public int getLogin() {
+		return login;
+	}
+	public void setLogin(int login) {
+		this.login = login;
 	}
 
 }

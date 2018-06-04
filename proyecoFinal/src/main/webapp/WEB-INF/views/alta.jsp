@@ -1,22 +1,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 <html>
 <head>
 <title>Home</title>
 <script type="text/javascript">
-
-function validar()
-{
-	event.preventDefault();
-	var clave1=document.querySelector("#clave1").value;
-	var clave2=document.querySelector("#clave2").value;
-	
-	if(clave1===clave2){
-		document.querySelector("#formulario").submit();
-	}else{
-	document.querySelector("#resultado").innerHTML="Las contraseñas no coinciden";
-	};
-}
+	function validar() {
+		event.preventDefault();
+		var clave1 = document.querySelector("#clave1").value;
+		var clave2 = document.querySelector("#clave2").value;
+		var rol = document.querySelector("#rol").selectedIndex;
+		if (clave1 === clave2 && rol>0) {
+			document.querySelector("#formulario").submit();
+		} 
+		if(!(clave1===clave2)){
+			document.querySelector("#resultado").innerHTML = "Las contraseñas no coinciden";
+			return;
+		}
+		if(rol===0)
+		{
+			document.querySelector("#resultado").innerHTML = "Seleccion de rol obligatoria";
+			return;
+			}
+	}
 </script>
 </head>
 <body>
@@ -34,7 +39,7 @@ function validar()
 			</tr>
 			<tr>
 				<td>Segundo Apellido*</td>
-				<td><input type="text" name="apellido2" required></td>
+				<td><input type="text" name="apellido2"  required></td>
 			</tr>
 			<tr>
 				<td>DNI*</td>
@@ -42,7 +47,7 @@ function validar()
 			</tr>
 			<tr>
 				<td>Fecha Nacimiento*</td>
-				<td><input type="date" name="fechaNacimiento" required></td>
+				<td><input type="date" name="fechaNacimiento" value="01/01/2000" required></td>
 			</tr>
 			<tr>
 				<td>Correo Electronico*</td>
@@ -58,11 +63,21 @@ function validar()
 			</tr>
 			<tr>
 				<td>Repetir clave*</td>
-				<td><input type="password"  id="clave2" required></td>
+				<td><input type="password" id="clave2" required></td>
+			</tr>
+			
+			<tr>
+				<td>Rol</td>
+				<td><select name="rol" id="rol">
+						<option value="0">Selecciona rol....</option>
+						<option value="1">Usuario</option>
+						<option value="2">Administrador</option>
+				</select></td>
 			</tr>
 			<tr>
-				
-				<td colspan="2" align="center"><button onclick="validar()">ENVIAR</button> </td>
+
+				<td colspan="2" align="center"><button onclick="validar()">ENVIAR</button>
+				</td>
 			</tr>
 		</table>
 	</form>
